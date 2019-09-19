@@ -5,9 +5,10 @@ export default function Form() {
     return (
         <Formik
             render={props => {
+                const {validationSchema} = props;
                 return (
                     <Form>
-                        <div>
+                        <div validateSchema={validationSchema}>
                             <label>
                                 Name
                                 <Field name='name' type='text' placeholder='Name' />
