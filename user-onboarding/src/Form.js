@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
-export default function Form() {
+export default function UserForm() {
     return (
         <Formik
             render={props => {
@@ -25,8 +25,8 @@ export default function Form() {
                         <div>
                             <label>
                                 I have read and agree to the terms of service.
-                                <Field name='service-terms' type='checkbox' />
-                                <ErrorMessage name='service-terms' component='div' />
+                                <Field name='serviceterms' type='checkbox' />
+                                <ErrorMessage name='serviceterms' component='div' />
                             </label>
                         </div>
                         <button type='submit'>Submit</button>
