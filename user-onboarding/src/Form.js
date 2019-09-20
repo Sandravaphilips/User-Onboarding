@@ -22,8 +22,15 @@ export default function UserForm({onSubmit}) {
         .max(20, 'You probably won\'t be able to remember this. Password length should be from 7-20 characters!')
         .required('We need your password'),
         serviceterms: yup.bool()
-        .oneOf([true], "Must agree to terms of service!")
-      });
+        .test(
+            'serviceterms',
+            'You have to agree with our Terms and Conditions!',
+            value => value === true
+        )
+        .required(
+            'You have to agree with our Terms and Conditions!'
+        ),
+    });
     return (
         <Formik
             validationSchema={validationSchema}
@@ -50,7 +57,7 @@ export default function UserForm({onSubmit}) {
                         <div>
                             <label>
                                 Password
-                                <Field name='password' type='text' placeholder='Password' />
+                                <Field name='password' type='current-password' placeholder='Password' />
                                 <ErrorMessage name='password' component='div' />
                             </label>
                         </div>
